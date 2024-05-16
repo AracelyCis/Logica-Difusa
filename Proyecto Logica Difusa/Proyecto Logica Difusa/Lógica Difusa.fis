@@ -1,0 +1,48 @@
+[System]
+Name='IA'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='comida'
+Range=[1 10]
+NumMFs=3
+MF1='Desagradable':'trapmf',[1 1 3 5]
+MF2='Aceptable':'trapmf',[4 5 7 8]
+MF3='Deliciosa':'trapmf',[7 8.5 10 10]
+
+[Input2]
+Name='servicio'
+Range=[1 10]
+NumMFs=3
+MF1='Pesimo':'trapmf',[1 1 3 4]
+MF2='Promedio':'trapmf',[3 4 7 8]
+MF3='Excelente':'trapmf',[7 8 10 10]
+
+[Output1]
+Name='propina'
+Range=[0 20]
+NumMFs=4
+MF1='poca':'trimf',[2 5 8]
+MF2='normal':'trimf',[7 10 14.07]
+MF3='generosa':'trapmf',[12.6 17.97 20 20]
+MF4='nada':'trimf',[0 0 0]
+
+[Rules]
+1 1, 4 (1) : 1
+1 2, 4 (1) : 1
+1 3, 1 (1) : 1
+2 1, 4 (1) : 1
+2 2, 2 (1) : 1
+2 3, 2 (1) : 1
+3 1, 4 (1) : 1
+3 2, 2 (1) : 1
+3 3, 3 (1) : 1
